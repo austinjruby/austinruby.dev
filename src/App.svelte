@@ -1,30 +1,70 @@
 <script>
-	export let name;
+	import { onMount } from 'svelte';
+	import Descriptor from './Descriptor.svelte';
+
+	let activeIndex = 0;
+
+	// TODO add links to some of these
+	// TODO add clickme tooltip
+	const descriptors = [
+		'Software engineer @ Medly',
+		'Scrambling golfer',
+		'Ex-bartender',
+		'Opinionated bagel lover',
+		'Used book reader',
+		'Ex-Tesla',
+		'Dog parent',
+		'Soul revival listener',
+		'Ex-pastrami hawker',
+	];
+
+	onMount(() => {
+		const rotateSpeed = 2500;
+		const rotator = setInterval(() => {
+			if (activeIndex === descriptors.length - 1) {
+				activeIndex = 0;
+			} else {
+				activeIndex += 1;
+			}
+		}, rotateSpeed);
+
+		return () => clearInterval(rotator);
+	})
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<div id="header-container">
+		<h1>Austin Ruby</h1>
+		{#each descriptors as descriptor, index}
+			<Descriptor text={descriptor} visible={index === activeIndex} />
+		{/each}
+	</div>
 </main>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Lato&family=Marcellus&family=Nunito+Sans:wght@300&display=swap');
+
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	#header-container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
+		color: #FFFDE7;
+		font-family: 'Marcellus', serif;
+		font-size: 10rem;
 		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		margin: 0 0 1rem 0;
 	}
 </style>
