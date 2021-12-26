@@ -12,8 +12,14 @@
 <style>
     p {
 		color: #E0CEF3;
-		font-size: 1.7rem;
+		font-size: 2vw;
 		margin: 0;
         font-family: 'Nunito Sans', sans-serif;
 	}
+
+    @media(max-width: 768px) {
+        p {
+            font-size: 4.5vw;
+        }
+    }
 </style>

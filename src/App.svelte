@@ -63,8 +63,15 @@
 	h1 {
 		color: #FFFDE7;
 		font-family: 'Marcellus', serif;
-		font-size: 10rem;
+		font-size: 11.1vw;
 		font-weight: 100;
 		margin: 0 0 1rem 0;
+	}
+
+	@media(max-width: 768px) {
+		h1 {
+			font-size: 22.2vw;
+			text-align: center;
+		}
 	}
 </style>
