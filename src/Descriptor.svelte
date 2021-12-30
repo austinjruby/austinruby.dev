@@ -67,8 +67,8 @@
     }
 
     @media(max-width: 768px) {
-        p {
-            font-size: 16vw;
+        p, a {
+            font-size: 4.5vw;
         }
     }
 </style>
