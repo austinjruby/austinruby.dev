@@ -41,20 +41,20 @@
         transition: transform .2s, color .2s ease;
     }
 
-    a::before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: calc(100% - 4.5rem);
-        height: 2px;
-        bottom: 0;
-        left: 2.25rem;
-        background-color: var(--text-color);
-        transform: scaleX(0);
-        transition: transform 0.2s ease;
-    }
-
     @media(hover: hover) {
+        a::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: calc(100% - 4rem);
+            height: .15vw;
+            bottom: 0;
+            left: 2rem;
+            background-color: var(--text-color);
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+        
         a:hover {
             color: var(--text-color-hover);
             transform: scale(1.1);
